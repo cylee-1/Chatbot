@@ -1,4 +1,4 @@
 pysqlite3
-pysqlite3-binery
+pysqlite3-binary
 streamlit
 langchain
