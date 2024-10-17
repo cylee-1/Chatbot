@@ -1,5 +1,2 @@
-$pip install --upgrade pip
-pysqlite3
-pysqlite3-binary
 streamlit
 langchain
