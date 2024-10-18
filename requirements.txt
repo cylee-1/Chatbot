@@ -1,9 +1,7 @@
 streamlit
 langchain
 langchain-community
-pysqlite3
-pysqlite3-binary
 unstructured
 openai
-chromadb
 tiktoken
+faiss

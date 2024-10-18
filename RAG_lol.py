@@ -1,6 +1,6 @@
-import pysqlite3
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+#import pysqlite3
+#import sys
+#sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 from langchain.chat_models import ChatOpenAI
@@ -8,8 +8,9 @@ from langchain.document_loaders import UnstructuredFileLoader
 from langchain.storage import LocalFileStore
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings, CacheBackedEmbeddings
-from langchain.vectorstores import Chroma
+#from langchain.vectorstores import Chroma
 from langchain.chains.question_answering import load_qa_chain
+from langchain_community.vectorstores import FAISS
 
 st.set_page_config(page_title="LoL Academy ChatBot")
 st.title('LoL Academy ChatBot')
@@ -34,7 +35,8 @@ splitter = CharacterTextSplitter.from_tiktoken_encoder(
 docs = documents.load_and_split(text_splitter=splitter)
 embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
 cached_embeddings = CacheBackedEmbeddings.from_bytes_store(embeddings, cache_dir)
-vectorstore = Chroma.from_documents(docs, cached_embeddings, persist_directory="./.verctorDB_lol")
+#vectorstore = Chroma.from_documents(docs, cached_embeddings, persist_directory="./.verctorDB_lol")
+vectorstore = FAISS.from_documents(documents=docs, embedding=cached_embeddings)
 
 llm=ChatOpenAI(
         temperature=0.5,
