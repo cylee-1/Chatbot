@@ -37,6 +37,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
 cached_embeddings = CacheBackedEmbeddings.from_bytes_store(embeddings, cache_dir)
 #vectorstore = Chroma.from_documents(docs, cached_embeddings, persist_directory="./.verctorDB_lol")
 vectorstore = FAISS.from_documents(documents=docs, embedding=cached_embeddings)
+vectorstore.save_local("./.verctorDB_lol")
 
 llm=ChatOpenAI(
         temperature=0.5,
