@@ -4,4 +4,4 @@ langchain-community
 unstructured
 openai
 tiktoken
-faiss-gpu
+faiss-cpu
