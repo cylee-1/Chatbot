@@ -16,8 +16,8 @@ st.set_page_config(page_title="LoL Academy ChatBot")
 st.title('LoL Academy ChatBot')
 
 #환경변수 사용
-st.secrets["OPENAI_API_KEY"]
-st.secrets["ENDPOINT"]
+#st.secrets["OPENAI_API_KEY"]
+#st.secrets["ENDPOINT"]
 
 #따로 학습시킬 텍스트 파일 로드
 documents = UnstructuredFileLoader("lol.txt")
