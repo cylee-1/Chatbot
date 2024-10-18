@@ -1,5 +1,4 @@
 import streamlit as st
-from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import UnstructuredFileLoader
 from langchain.storage import LocalFileStore
@@ -11,8 +10,9 @@ from langchain.chains.question_answering import load_qa_chain
 st.set_page_config(page_title="LoL Academy ChatBot")
 st.title('LoL Academy ChatBot')
 
-#환경변수 사용 .env
-load_dotenv()
+#환경변수 사용
+st.secrets["OPENAI_API_KEY"]
+st.secrets["ENDPOINT"]
 
 #따로 학습시킬 텍스트 파일 로드
 documents = UnstructuredFileLoader("lol.txt")
